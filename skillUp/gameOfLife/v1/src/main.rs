@@ -7,9 +7,6 @@ use terminal_graphics::Display;
 const MAX_X: u32 = 160;
 const MAX_Y: u32 = 40;
 
-// const MAX_X: u32 = 10;
-// const MAX_Y: u32 = 3;
-
 fn main() -> Result<(), String> {
     let path = match parse::get_map_filepath() {
         Ok(x) => x,
@@ -26,5 +23,4 @@ fn main() -> Result<(), String> {
         std::thread::sleep(std::time::Duration::new(0, 50000000));
         map = evolution::evolve(map);
     }
-    Ok(())
 }

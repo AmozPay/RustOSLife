@@ -1,14 +1,5 @@
 use std::collections::VecDeque;
 
-pub fn print_map(map: &Vec<Vec<bool>>) {
-    for line in map {
-        for cell in line {
-            print!("{}", if *cell { 'o' } else { '.' });
-        }
-        print!("\n");
-    }
-}
-
 fn get_nb_surrounding_alive(cell_x: usize, cell_y: usize, map: &Vec<Vec<bool>>) -> usize {
     let mut nb: usize = 0;
     let mut x_directions: VecDeque<i32> = VecDeque::from([-1, 0, 1]);
@@ -27,7 +18,6 @@ fn get_nb_surrounding_alive(cell_x: usize, cell_y: usize, map: &Vec<Vec<bool>>) 
     }
     for y_dir in &y_directions {
         for x_dir in &x_directions {
-            let center_cell = map[cell_y][cell_x];
             if *y_dir == 0 && *x_dir == 0 {
                 continue;
             }
