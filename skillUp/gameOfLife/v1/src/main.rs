@@ -8,7 +8,8 @@ const MAX_X: u32 = 160;
 const MAX_Y: u32 = 40;
 
 fn main() -> Result<(), String> {
-    let path = match parse::get_map_filepath() {
+    let args = std::env::args().collect();
+    let path = match parse::get_map_filepath(&args) {
         Ok(x) => x,
         Err(e) => return Err(e),
     };
